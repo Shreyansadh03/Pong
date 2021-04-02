@@ -45,8 +45,8 @@ ball.shape("circle")
 ball.penup()
 ball.color("black")
 ball.goto(0,0)
-ball.dx = 0.2
-ball.dy = 0.2
+ball.dx = 0.5
+ball.dy = 0.5
 
 # Score Board
 
@@ -122,20 +122,22 @@ while True:
         
     if ball.xcor() > xres/2 - 10:
         ball.goto(0,0)
-        if random.random() > 0.5:
-            ball.dx *= -1 
-        else:
-            ball.dx *= 1
+        # if random.random() > 0.5:
+        #     ball.dx *= -1 
+        # else:
+        #     ball.dx *= 1
+        ball.dx *= random.uniform(0.9,1)
         score1 += 1
         board.clear()
         board.write("Player A = {} | Player B = {}".format(score1,score2), align = "center", font = ("Consolas",16,"normal"))
         
     if ball.xcor() < -(xres/2 - 10):
         ball.goto(0,0)
-        if random.random() > 0.5:
-            ball.dx *= -1 
-        else:
-            ball.dx *= 1
+        # if random.random() > 0.5:
+        #     ball.dx *= -1 
+        # else:
+        #     ball.dx *= 1
+        ball.dx *= random.uniform(0.9,1)
         score2 += 1
         board.clear()
         board.write("Player A = {} | Player B = {}".format(score1,score2), align = "center", font = ("Consolas",16,"normal"))    
@@ -150,6 +152,3 @@ while True:
     if ball.xcor() < -(xres/2 - 70) and ball.xcor() > -(xres/2 - 40) and ball.ycor() < paddle1.ycor() + 60 and ball.ycor() > paddle1.ycor() - 60:
         ball.setx(-(xres/2 - 70))
         ball.dx *= -1
-
-    
-    
